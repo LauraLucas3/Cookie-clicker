@@ -1,18 +1,87 @@
+$colortext1 : black;
+
+html {
+    min-height: 100%;
+}
+
 body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100%;
+    width: 80%;
+    margin: auto;
     text-align:center;
     font-family: 'Josefin Sans', sans-serif;
+    background : {
+        image: url("../img/bg.jpg");
+        repeat: no-repeat;
+        size: cover;
+        position: top left;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.container1 {
+    width: 50%;
+    margin-right: 20px;
+}
+
+.moneycount {
+    color: $colortext1;
+}
+
+#saveParty, #LoadParty {
+    width: 100px;
+    height: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+h1 {
+    font-family: 'Limelight', cursive;
+    color: $colortext1;
+    font-size: 46px;
+}
+
+.options {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+    flex-wrap: wrap;
+}
+
+.buttons {
+    width: 30%;
+    margin: {
+        right: 10px;
+        left: 10px;
+    }
+    color: $colortext1;
 }
 
 #text {
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-}
-
-h1 {
-    font-family: 'Limelight', cursive;
+    color: black;
 }
 
 #Billet {
     width: 350px;
     height: auto;
+    border: {
+        color: rgba(255,255,255,0.5);
+        style: solid;
+        width: 10px;
+    }
 }

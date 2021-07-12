@@ -14,16 +14,57 @@
     </head>
     <body>
         <h1>Money Clicker Game</h1>
-        <a href="#" onClick="addMoney()"><img id="Billet" src="assets/img/billet.png" /></a>
-        <p>You have <input type="text" id="text" disabled value="0"> euros</p>
+        <div class="container">
+            <div class="container1">
+                <p>You are gaining <span id="eurosPerSec">0</span> euros per second</p>
+                <a href="#" onClick="addMoney()"><img id="Billet" src="assets/img/billet.png" /></a>
+                <p>You have <input type="text" id="text" disabled value="0"> euros</p>
+                <div>
+                    <button id="saveParty"><a href="#" onClick="saveParty()">Save</a></button>
+                    <button id="LoadParty"><a href="#" onClick="loadParty()">Load</a></button>
+                </div>
+            </div>
 
-        <button id="saveParty"><a href="#" onClick="saveParty()">Save</a></button>
-        <button id="LoadParty"><a href="#" onClick="loadParty()">Load</a></button>
-
-        <p>Buy 1 autoClicker</p>
-        <button id="buyAutoclick"><a href="#" onClick="buyAutoclick()"><img src="assets/img/autoclick.png" width="50px" height="50px"/></a></button>
-        <p id="AutoClickPrice">12 euros</p>
-        <p>You have <span id="amountAutoclick">0</span> autoClickers</p>
+            <div class="options">
+                <div class="buttons">
+                    <p>Buy MULTIPLIER</p>
+                    <button id="buyMultiplier"><a href="#" onClick="buyMultiplier()"><img src="assets/img/multiplier.png" width="100px" height="100px"></a></button>
+                    <p id="MultiplierPrice">400 euros</p>
+                    <p>Your current MULTIPLIER is click x<span id="amountMultiplier">1</span></p>
+                </div>
+                <div class="buttons">
+                    <p>Buy 1 AUTOCLICKER</p>
+                    <button id="buyAutoclick"><a href="#" onClick="buyAutoclick()"><img src="assets/img/autoclick.png" width="100px" height="100px"/></a></button>
+                    <p id="AutoClickPrice">12 euros</p>
+                    <p>You have <span id="amountAutoclick">0</span> AUTOCLICKERS</p>
+                </div>
+                <div class="buttons">
+                    <p>Buy 1 GRANDMA</p>
+                    <button id="buyGrandMa"><a href="#" onClick="buyGrandMa()"><img src="assets/img/grandma.png" width="100px" height="100px"/></a></button>
+                    <p id="GrandMaPrice">80 euros</p>
+                    <p>You have <span id="amountGrandMa">0</span> GRANDMAS</p>
+                </div>
+                <div class="buttons">
+                    <p>Buy 1 HOTEL</p>
+                    <button id="buyHotel"><a href="#" onClick="buyHotel()"><img src="assets/img/hotels.jpg" width="100px" height="100px"/></a></button>
+                    <p id="HotelPrice">880 euros</p>
+                    <p>You have <span id="amountHotel">0</span> HOTELS</p>
+                </div>
+                <div class="buttons">
+                    <p>Buy 1 CASINO</p>
+                    <button id="buyCasino"><a href="#" onClick="buyCasino()"><img src="assets/img/casinos.png" width="100px" height="100px"/></a></button>
+                    <p id="CasinoPrice">9600 euros</p>
+                    <p>You have <span id="amountCasino">0</span> CASINOS</p>
+                </div>
+                <div class="buttons">
+                    <p>Buy 1 CALL GIRL</p>
+                    <button id="buyCallGirl"><a href="#" onClick="buyCallGirl()"><img src="assets/img/callgirls.png" width="100px" height="100px"/></a></button>
+                    <p id="CallGirlPrice">15000 euros</p>
+                    <p>You have <span id="amountCallGirl">0</span> CALL GIRLS</p>
+                </div>
+            </div>
+        </div>
+        
 
         <script src="assets/js/script.js"></script>
     </body>
