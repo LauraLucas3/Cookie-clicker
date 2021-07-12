@@ -6,11 +6,24 @@
         <meta name="description" content="Money Clicker Game">
         <title>Money Clicker</title>
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Limelight&display=swap" rel="stylesheet">    
         <link href="assets/css/normalize.css" rel="stylesheet" />
         <link href="assets/css/style.css" rel="stylesheet" />
     </head>
     <body>
         <h1>Money Clicker Game</h1>
+        <a href="#" onClick="addMoney()"><img id="Billet" src="assets/img/billet.png" /></a>
+        <p>You have <input type="text" id="text" disabled value="0"> euros</p>
+
+        <button id="saveParty"><a href="#" onClick="saveParty()">Save</a></button>
+        <button id="LoadParty"><a href="#" onClick="loadParty()">Load</a></button>
+
+        <p>Buy 1 autoClicker</p>
+        <button id="buyAutoclick"><a href="#" onClick="buyAutoclick()"><img src="assets/img/autoclick.png" width="50px" height="50px"/></a></button>
+        <p id="AutoClickPrice">12 euros</p>
+        <p>You have <span id="amountAutoclick">0</span> autoClickers</p>
 
         <script src="assets/js/script.js"></script>
     </body>

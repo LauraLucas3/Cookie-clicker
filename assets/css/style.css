@@ -1,1 +1,19 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+body {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#text {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Limelight', cursive;
+}
+
+#Billet {
+  width: 350px;
+  height: auto;
+}
+/*# sourceMappingURL=style.css.map */
