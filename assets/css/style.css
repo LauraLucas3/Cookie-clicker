@@ -84,6 +84,29 @@ h1 {
   color: black;
 }
 
+.buttons2 {
+  width: 100%;
+  margin-top: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+}
+
+.buttons2 button {
+  width: 300px;
+  height: 150px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 26px;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.buttons2 button a {
+  text-decoration: none;
+  color: black;
+}
+
 #text {
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
@@ -96,5 +119,9 @@ h1 {
   border-color: rgba(255, 255, 255, 0.5);
   border-style: solid;
   border-width: 10px;
+}
+
+#button1, #button2, #button3, #button4, #button5, #button6, #button7 {
+  visibility: hidden;
 }
 /*# sourceMappingURL=style.css.map */

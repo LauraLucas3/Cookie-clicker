@@ -5,6 +5,8 @@ var hotels = 0;
 var casinos = 0;
 var callgirl = 0;
 var multiplier = 1;
+var bonustime = 1;
+var BonusOn = false;
 
 function update () {
     document.getElementById("text").value = moneyCount;
@@ -21,6 +23,55 @@ function update () {
     document.getElementById("MultiplierPrice").innerHTML = (multiplier * 400) + " euros";
     document.getElementById("amountMultiplier").innerHTML = multiplier;
     document.getElementById("eurosPerSec").innerHTML = (autoclick + (grandma*10) + (hotels*80) + (casinos*470) + (callgirl*2600)) * multiplier;
+    if (moneyCount >= (bonustime * 500)) {
+        document.getElementById("button7").style.visibility = "visible";
+        document.getElementById("BonusTime").disabled = false;
+    }
+    if (moneyCount < (bonustime * 500)) {
+        document.getElementById("BonusTime").disabled = true;
+    }
+    if (moneyCount >= ((autoclick + 1) * 12)) {
+        document.getElementById("button2").style.visibility = "visible";
+        document.getElementById("buyAutoclick").disabled = false;
+    }
+    if (moneyCount < ((autoclick + 1) * 12)) {
+        document.getElementById("buyAutoclick").disabled = true;
+    }
+    if (moneyCount >= ((hotels + 1) * 880)) {
+        document.getElementById("button4").style.visibility = "visible";
+        document.getElementById("buyHotel").disabled = false;
+    }
+    if (moneyCount < ((hotels + 1) * 880)) {
+        document.getElementById("buyHotel").disabled = true;
+    }
+    if (moneyCount >= ((grandma + 1) * 80)) {
+        document.getElementById("button3").style.visibility = "visible";
+        document.getElementById("buyGrandMa").disabled = false;
+    }
+    if (moneyCount < ((grandma + 1) * 80)) {
+        document.getElementById("buyGrandMa").disabled = true;
+    }
+    if (moneyCount >= ((casinos + 1) * 9600)) {
+        document.getElementById("button5").style.visibility = "visible";
+        document.getElementById("buyCasino").disabled = false;
+    }
+    if (moneyCount < ((casinos + 1) * 9600)) {
+        document.getElementById("buyCasino").disabled = true;
+    }
+    if (moneyCount >= ((callgirl + 1) * 15000)) {
+        document.getElementById("button6").style.visibility = "visible";
+        document.getElementById("buyCallGirl").disabled = false;
+    }
+    if (moneyCount < ((callgirl + 1) * 15000)) {
+        document.getElementById("buyCallGirl").disabled = true;
+    }
+    if (moneyCount >= (multiplier * 400)) {
+        document.getElementById("button1").style.visibility = "visible";
+        document.getElementById("buyMultiplier").disabled = false;
+    }
+    if (moneyCount < (multiplier * 400)) {
+        document.getElementById("buyMultiplier").disabled = true;
+    }
 }
 
 function timer () {
@@ -30,12 +81,50 @@ function timer () {
 
 setInterval(timer, 1000);
 
-function addMoney () {
-    moneyCount = moneyCount + (1*multiplier);
-    update();
+function addMoney() {
+    if (BonusOn === false) {
+        moneyCount = moneyCount + (1*multiplier);
+        update();
+    }
 }
 
-function saveParty () {
+document.getElementById("addMoney").addEventListener("click", addMoney);
+
+document.getElementById("BonusTime").addEventListener("click", () => {
+    if (moneyCount >= (bonustime * 500)) {
+        BonusOn = true;
+        var CountDown = 30;
+        moneyCount = moneyCount - (bonustime * 500);
+        bonustime = bonustime * 2;
+        var bonusAmount = moneyCount * 2;
+        document.getElementById("BonusPrice").innerHTML = (bonustime * 500) + " euros";
+        document.getElementById("text").value = moneyCount;
+        function BonusTime2 () {
+            moneyCount = moneyCount + bonusAmount;
+            document.getElementById("text").value = moneyCount;
+        }
+        var x = setInterval(function() {
+            CountDown = CountDown - 1;
+            CountDown = CountDown < 10 ? "0" + CountDown : CountDown;
+            document.getElementById("BonusTime2").innerHTML = CountDown + "s";
+
+            if ((CountDown <= 0) && (BonusOn === true)) {
+                clearInterval(x);
+                document.getElementById("BonusTime2").innerHTML = "";
+                BonusOn = false;
+                document.getElementById("addMoney").removeEventListener("click", BonusTime2);
+                document.getElementById("addMoney").addEventListener("click", addMoney);
+            }
+
+            if (CountDown > 0) {
+                document.getElementById("addMoney").removeEventListener("click", addMoney);
+                document.getElementById("addMoney").addEventListener("click", BonusTime2);
+            }
+        }, 1000);
+    }
+});
+
+document.getElementById("saveParty").addEventListener("click", () => {
     localStorage.setItem("moneyCount", moneyCount);
     localStorage.setItem("autoclick", autoclick);
     localStorage.setItem("grandma", grandma);
@@ -44,9 +133,9 @@ function saveParty () {
     localStorage.setItem("callgirl", callgirl);
     localStorage.setItem("multiplier", multiplier);
     update();
-}
+});
 
-function loadParty () {
+document.getElementById("LoadParty").addEventListener("click", () => {
     moneyCount = new Number(localStorage.getItem("moneyCount"));
     autoclick = new Number(localeStorage.getItem("autoclick"));
     grandma = new Number(localeStorage.getItem("grandma"));
@@ -55,52 +144,52 @@ function loadParty () {
     callgirl = new Number(localeStorage.getItem("callgirl"));
     multiplier = new Number(localeStorage.getItem("multiplier"));
     update();
-}
+});
 
-function buyAutoclick () {
+document.getElementById("buyAutoclick").addEventListener("click", () => {
     if (moneyCount >= ((autoclick + 1) * 12)) {
         moneyCount = moneyCount - ((autoclick + 1) * 12);
         autoclick = autoclick + 1;
         update();
     }
-}
+});
 
-function buyHotel () {
+document.getElementById("buyHotel").addEventListener("click", () => {
     if (moneyCount >= ((hotels + 1) * 880)) {
         moneyCount = moneyCount - ((hotels + 1) * 880);
         hotels = hotels + 1;
         update();
     }
-}
+});
 
-function buyGrandMa () {
+document.getElementById("buyGrandMa").addEventListener("click", () => {
     if (moneyCount >= ((grandma + 1) * 80)) {
         moneyCount = moneyCount - ((grandma + 1) * 80);
         grandma = grandma + 1;
         update();
     }
-}
+});
 
-function buyCasino () {
+document.getElementById("buyCasino").addEventListener("click", () => {
     if (moneyCount >= ((casinos + 1) * 9600)) {
         moneyCount = moneyCount - ((casinos + 1) * 9600);
         casinos = casinos + 1;
         update();
     }
-}
+});
 
-function buyCallGirl () {
+document.getElementById("buyCallGirl").addEventListener("click", () => {
     if (moneyCount >= ((callgirl + 1) * 15000)) {
         moneyCount = moneyCount - ((callgirl + 1) * 15000);
         callgirl = callgirl + 1;
         update();
     }
-}
+});
 
-function buyMultiplier () {
+document.getElementById("buyMultiplier").addEventListener("click", () => {
     if (moneyCount >= (multiplier * 400)) {
         moneyCount = moneyCount - (multiplier * 400);
         multiplier = multiplier + 1;
         update();
     }
-}
+});

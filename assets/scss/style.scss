@@ -70,6 +70,27 @@ h1 {
     color: $colortext1;
 }
 
+.buttons2 {
+    width: 100%;
+    margin: {
+        top: 20px;
+    }
+    justify-content: center;
+    color: $colortext1;
+    button {
+        width: 300px;
+        height: 150px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 26px;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        background-color: rgba(0, 0, 0, 0);
+        border-color:rgba(0, 0, 0, 0);
+    }
+}
+
 #text {
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
@@ -84,4 +105,8 @@ h1 {
         style: solid;
         width: 10px;
     }
+}
+
+#button1, #button2, #button3, #button4, #button5, #button6, #button7 {
+    visibility : hidden;
 }
