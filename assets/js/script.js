@@ -7,6 +7,7 @@ var callgirl = 0;
 var multiplier = 1;
 var bonustime = 1;
 var BonusOn = false;
+var CasaPapel = 0;
 
 function update () {
     document.getElementById("text").value = moneyCount;
@@ -22,6 +23,7 @@ function update () {
     document.getElementById("amountCallGirl").innerHTML = callgirl;
     document.getElementById("MultiplierPrice").innerHTML = (multiplier * 400) + " euros";
     document.getElementById("amountMultiplier").innerHTML = multiplier;
+    document.getElementById("CasaPapelprice").innerHTML = ((CasaPapel + 1) * 1000000) + " euros";
     document.getElementById("eurosPerSec").innerHTML = (autoclick + (grandma*10) + (hotels*80) + (casinos*470) + (callgirl*2600)) * multiplier;
     if (moneyCount >= (bonustime * 500)) {
         document.getElementById("button7").style.visibility = "visible";
@@ -71,6 +73,13 @@ function update () {
     }
     if (moneyCount < (multiplier * 400)) {
         document.getElementById("buyMultiplier").disabled = true;
+    }
+    if (moneyCount >= ((CasaPapel + 1) * 1000000)) {
+        document.getElementById("button8").style.visibility = "visible";
+        document.getElementById("buyCasaPapel").disabled = false;
+    }
+    if (moneyCount < ((CasaPapel + 1) * 1000000)) {
+        document.getElementById("buyCasaPapel").disabled = true;
     }
 }
 
@@ -132,17 +141,19 @@ document.getElementById("saveParty").addEventListener("click", () => {
     localStorage.setItem("casinos", casinos);
     localStorage.setItem("callgirl", callgirl);
     localStorage.setItem("multiplier", multiplier);
+    localStorage.setItem("CasaPapel", CasaPapel);
     update();
 });
 
 document.getElementById("LoadParty").addEventListener("click", () => {
     moneyCount = new Number(localStorage.getItem("moneyCount"));
-    autoclick = new Number(localeStorage.getItem("autoclick"));
-    grandma = new Number(localeStorage.getItem("grandma"));
-    hotels = new Number(localeStorage.getItem("hotels"));
-    casinos = new Number(localeStorage.getItem("casinos"));
-    callgirl = new Number(localeStorage.getItem("callgirl"));
-    multiplier = new Number(localeStorage.getItem("multiplier"));
+    autoclick = new Number(localStorage.getItem("autoclick"));
+    grandma = new Number(localStorage.getItem("grandma"));
+    hotels = new Number(localStorage.getItem("hotels"));
+    casinos = new Number(localStorage.getItem("casinos"));
+    callgirl = new Number(localStorage.getItem("callgirl"));
+    multiplier = new Number(localStorage.getItem("multiplier"));
+    CasaPapel = new Number(localStorage.getItem("CasaPapel"));
     update();
 });
 
@@ -190,6 +201,15 @@ document.getElementById("buyMultiplier").addEventListener("click", () => {
     if (moneyCount >= (multiplier * 400)) {
         moneyCount = moneyCount - (multiplier * 400);
         multiplier = multiplier + 1;
+        update();
+    }
+});
+
+document.getElementById("buyCasaPapel").addEventListener("click", () => {
+    if (moneyCount >= ((CasaPapel + 1) * 1000000)) {
+        moneyCount = moneyCount - ((CasaPapel + 1) * 1000000);
+        moneyCount = moneyCount + ((CasaPapel + 1) * 5000000);
+        CasaPapel = CasaPapel + 1;
         update();
     }
 });
