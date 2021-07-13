@@ -23,7 +23,7 @@ function update () {
     document.getElementById("amountCallGirl").innerHTML = callgirl;
     document.getElementById("MultiplierPrice").innerHTML = (multiplier * 400) + " euros";
     document.getElementById("amountMultiplier").innerHTML = multiplier;
-    document.getElementById("CasaPapelprice").innerHTML = ((CasaPapel + 1) * 1000000) + " euros";
+    document.getElementById("CasaPapelprice").innerHTML = (CasaPapel + 1) + " million(s) d'euros";
     document.getElementById("eurosPerSec").innerHTML = (autoclick + (grandma*10) + (hotels*80) + (casinos*470) + (callgirl*2600)) * multiplier;
     if (moneyCount >= (bonustime * 500)) {
         document.getElementById("button7").style.visibility = "visible";
