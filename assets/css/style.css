@@ -169,6 +169,21 @@ h1 {
   margin-right: 10px;
 }
 
+.image1 {
+  height: 130px;
+  width: 300px;
+}
+
+.image2 {
+  height: 100px;
+  width: 100px;
+}
+
+.image3 {
+  height: 100px;
+  width: 300px;
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     display: -webkit-box;
